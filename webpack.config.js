@@ -12,7 +12,7 @@ module.exports = {
   devtool: isDevelopment ? "eval-source-map" : "source-map",
 
   //entry source where are going to work and the output
-  entry: path.resolve(__dirname, "src", "index.jsx"),
+  entry: path.resolve(__dirname, "src", "index.tsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -20,7 +20,7 @@ module.exports = {
 
   //types of extension that webpack will deal with
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
 
   //handle our server
@@ -42,7 +42,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(j|t)sx$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
